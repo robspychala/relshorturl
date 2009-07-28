@@ -29,8 +29,6 @@ import model
 
 pattern_http_shorturl = re.compile(r'\<(.*)\>\; rel\=shorturl')
 pattern_html_shorturl = re.compile(r'(?i)\<(?:link)\s.*?rel\s*\=\s*[\"\'].*?shorturl.*?[\"\'].*?href\s*\=\s*[\"\'](.*?)[\"\'].*?\>')
-pattern_html_shorturl_reverse = re.compile(r'(?i)\<head\>.*\<(?:link|a)\s.*?href\s*\=\s*[\"\'](.*?)[\"\'].*?rel\s*\=\s*[\"\'].*?shorturl.*?[\"\'].*?\>')
-pattern_shorturl = re.compile(r'shorturl')
 
 ## tests to see that the app is runnin on gae, and not on localhost  
 def is_production():
