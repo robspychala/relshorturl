@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us">{% spaceless %}
+<head>
+	<title>shorturl auto-discovery - a standard for URL shortening</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="shorturl, shortlink, revcanonical" />
+	<meta name="Description" content="ShortURL is a self URL shortening standard for the web." />
+	<link rel="stylesheet" href="/library/screen.css" media="screen" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	{% block head %}{% endblock %}
+</head>
+<body>
+  <div id="ajax_spinner"><span>checking ...</span></div>
+  <div id="article">
+{% block content %}{% endblock %}
+  </div>
+</body>
+{% if prod %}
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-63553-7");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+{% endif %}
+</html>{% endspaceless %}
