@@ -28,12 +28,16 @@
 
     <p>That's it! :)
       
+      <div style="text-align:center">. . .</div>
+      
     <h3>Bookmarklet</h3>
     
     <p>
     <a title="short_url Auto-Discovery Bookmarklet" class="button" href="javascript:(function(){var%20t%20=%20%27s%27%20+%20(new%20Date()).getTime();var%20linkArr%20=%20document.getElementsByTagName(%27link%27);var%20e%20=%20document.createElement(%27div%27);document.body.insertBefore(e,%20document.body.firstChild);var%20d%20=%20%27position:fixed;width:100%;z-index:1000;left:0;top:50px;%27;var%20c%20=%20%27position:relative;border:1px%20solid%20black;color:black!important;background:white!important;width:500px;margin-left:auto;margin-right:auto;padding:10px%2020px%2010px%2020px!important;%27;var%20h%20=%20%27&lt;p%20style=%22text-align:left%22&gt;&lt;input%20type=\%27button\%27%20value=\%27Close\%27%20onclick=\%27document.getElementById(%22%27%20+%20t%20+%20%27%22).style.display=%22none%22\%27/&gt;%20&nbsp;%20&lt;a%20style=%22color:black%22%20href=%22{{api_base_url}}/%22&gt;{{api_base_domain}}/&lt;/a&gt;&lt;/p&gt;%27;e.innerHTML%20=%20%27&lt;div%20id=\%27%27%20+%20t%20+%20%27\%27%20style=\%27%27%20+%20d%20+%20%27\%27&gt;&lt;div%20style=\%27%27%20+%20c%20+%20%27\%27&gt;&lt;iframe%20style=\%27border:none;width:100%;height:180px;\%27%20src=\%27{{api_base_url}}/iframe?url=%27%20+%20encodeURIComponent(location.href)%20+%20%27\%27&gt;&lt;/iframe&gt;%27%20+%20h%20+%20%27&lt;/div&gt;&lt;/div&gt;%27;})()">short URL</a> - drag this link to your browser's tool bar.</p>    
         
   </p>
+  
+  <div style="text-align:center">. . .</div>
   
   <h3>Try it</h3>
   
@@ -42,10 +46,27 @@
     
     Long URL: <input type="text" name="url"> &nbsp; <input type="submit" value="Check for shorturl" id="shorturl_form_submit">
     
-    <div id="shorturl"></div>
     
    </p>
+   
    </form>
+   
+   <div id="shorturl_fail">
+   <h3>Did not find a short URL</h3>
+     
+     
+     
+     </div>
+     
+   <div id="shorturl_success">
+     
+   <h3>Success! Found a short URL:</h3>
+
+     <p class="found_url"><code id="shorturl"></code></p>
+     
+   </div>
+   
+   <div style="text-align:center">. . .</div>
    
    <h3>Fork me on github</h3>
      
@@ -54,6 +75,8 @@
 </div>
 
 <div id="other">
+  
+  <div style="text-align:center">. . .</div>
   
   <p><a href="http://wiki.snaplog.com/short_url">Old documentation on the Snaplog WIKI</a></p>
   
@@ -111,6 +134,10 @@
   <p>nice, but not that much different from shorturl to warrant a change IMHO. shortaddress? shortlocation? there are tons of other options ex: tinylink? If consensus is that it's better i'll switch for sure. better to have one way to do a simple thing, but i just don't want to knee-jerk change it cause people already implemented rel="shorturl".</p>
   </blockquote>
   
+  
   </div>
+  <div style="text-align:center">. . .</div>
+  
+  <p><a style="color: #aaa;" href="http://twitter.com/robspychala">You should follow me (robspychala) on twitter!</a></p>
   
 {% endblock %}  

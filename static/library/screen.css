@@ -20,6 +20,7 @@ margin-right: auto;
 
 div#other {
 color: #333;
+margin-bottom: 70px;
 }
 
 div#main {
@@ -90,10 +91,19 @@ background: #FFEE55; color: black; padding: 6px 8px 3px 8px;
 -webkit-border-bottom-left-radius: 4px;
 -moz-border-radius-bottomright: 4px;
 -webkit-border-bottom-right-radius: 4px;  
-font-weight: bold;  
+font-weight: bold;
 }
 
 #ajax_spinner {
 display: none;
-position: absolute; width: 100%; text-align: center; left: 0; top: 0; padding: 0; margin: 0;
+position: fixed;
+width: 100%; text-align: center; left: 0; top: 0; padding: 0; margin: 0;
+}
+
+#shorturl_fail {
+  display: none;
+}
+
+#shorturl_success {
+  display: none;
 }

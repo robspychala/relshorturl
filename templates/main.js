@@ -12,7 +12,9 @@ $(document).ready(function() {
 
        $('#ajax_spinner').show();
        $(eventObject.target).attr("disabled", "true");
-
+       
+      $("#shorturl_success").hide();
+      $("#shorturl_fail").hide();
 
        $.ajax({
           type: "GET",
@@ -25,11 +27,13 @@ $(document).ready(function() {
               $(eventObject.target).removeAttr("disabled");
 
               if (msg.success == false) {
+                
+                $("#shorturl_fail").show();
 
               } else {
 
                   $("#shorturl").text(msg.shorturl);
-                  $("#shorturl").show();
+                  $("#shorturl_success").show();
               }
 
           },
