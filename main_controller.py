@@ -28,7 +28,7 @@ from django.utils import simplejson as json
 import model
 
 pattern_http_shorturl = re.compile(r'\<(.*)\>\; rel\=shorturl')
-pattern_html_shorturl = re.compile(r'(?i)\<(?:link)\s.*?rel\s*\=\s*[\"\'].*?shorturl.*?[\"\'].*?href\s*\=\s*[\"\'](.*?)[\"\'].*?\>')
+pattern_html_shorturl = re.compile(r'(?i)\<(?:link)\s.*?rel\s*\=\s*[\"\']shorturl[\"\'].*?href\s*\=\s*[\"\'](.*?)[\"\'].*?\>')
 
 ## tests to see that the app is runnin on gae, and not on localhost  
 def is_production():
@@ -104,7 +104,7 @@ def find_shorturl(longurl):
     if (m): 
       return m.group(1), "http_header"
       
-  logging.info(body)
+  # logging.info(body)
 
   if (longurl):
     m = pattern_html_shorturl.search(body)
