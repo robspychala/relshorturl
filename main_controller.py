@@ -116,8 +116,9 @@ def find_shorturl(longurl):
 
 class MainHandler(webapp.RequestHandler):
 
-  @save_user
   def get(self):
+    
+    self.template_values = {}
     
     self.template_values['api_base_url'] = "http://relshorturl.appspot.com"
     self.template_values['api_base_domain'] = "relshorturl.appspot.com"
