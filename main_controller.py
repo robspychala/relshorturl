@@ -181,6 +181,8 @@ class ApiHandler(webapp.RequestHandler):
       try:
         shorturl, shorturl_source = find_shorturl(longurl)
         
+        logging.info(shorturl)
+        
         if (shorturl):
           url = model.Url(user=self.user, longurl=longurl, userip=self.request.remote_addr)
           url.put()        
@@ -188,9 +190,9 @@ class ApiHandler(webapp.RequestHandler):
         pass      
     
     if (shorturl):
-      self.response.out.write(json.dumps({'success': True,"shorturl": shorturl,}))
+      self.response.out.write(json.dumps({'success': True,"shorturl": shorturl,}, ensure_ascii=False))
     else:
-      self.response.out.write(json.dumps({'success': False,}))
+      self.response.out.write(json.dumps({'success': False,}, ensure_ascii=False))
           
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),
