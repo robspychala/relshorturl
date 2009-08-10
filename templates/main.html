@@ -2,6 +2,9 @@
 {% block head %}
 <script>
 {% include "main.js" %}
+{% if not prod %}
+var disqus_developer = 1;
+{% endif %}
 </script>
 {% endblock %}
 {% block content %}
@@ -68,6 +71,16 @@
    
    <div style="text-align:center">. . .</div>
    
+   <h3>sites supporting shorturl:</h3>
+   
+   <p><a href="http://tumblr.com/">tumblr.com</a><br/>
+     <a href="http://arstechnica.com/">arstechnica.com</a> &rarr; arst.ch<br/>
+     <a href="http://snaplog.com/">snaplog.com</a><br/>
+     <a href="http://daringfireball.net/">daringfireball.net</a> &rarr; ✪df.ws<br/>
+     <a href="http://channel9.msdn.com/">channel9.msdn.com</a> &rarr; ch9.ms<br/>
+     <a href="http://www.scienceslides.com/">scienceslides.com</a><br/>
+     and more . . .
+     
    <h3>Fork me on github</h3>
      
      <p><a href="http://github.com/robspychala/relshorturl/tree/master">http://github.com/robspychala/relshorturl/tree/master</a></p>
@@ -139,5 +152,11 @@
   <div style="text-align:center">. . .</div>
   
   <p><a style="color: #aaa;" href="http://twitter.com/robspychala">You should follow me (robspychala) on twitter!</a></p>
+  
+  <div style="text-align:center">. . .</div>
+  
+  <p><div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/relshorturl/embed.js"></script><noscript><a href="http://relshorturl.disqus.com/?url=ref">View the discussion thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a></p>
+  
+  <div style="text-align:center">. . .</div>
   
 {% endblock %}  

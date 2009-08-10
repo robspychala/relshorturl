@@ -107,3 +107,8 @@ width: 100%; text-align: center; left: 0; top: 0; padding: 0; margin: 0;
 #shorturl_success {
   display: none;
 }
+
+#disqus_thread {
+  width:100%;
+}
+}

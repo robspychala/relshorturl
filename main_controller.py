@@ -30,6 +30,8 @@ import model
 pattern_http_shorturl = re.compile(r'\<(.*)\>\; rel\=shorturl')
 pattern_html_shorturl = re.compile(r'(?i)\<(?:link)\s.*?rel\s*\=\s*[\"\']shorturl[\"\'].*?href\s*\=\s*[\"\'](.*?)[\"\'].*?\>')
 
+
+
 ## tests to see that the app is runnin on gae, and not on localhost  
 def is_production():
   return not os.environ.get('SERVER_SOFTWARE','').startswith('Devel')
@@ -142,6 +144,10 @@ class FormHandler(webapp.RequestHandler):
     if (longurl):
       try:
         shorturl, shorturl_source = find_shorturl(longurl)
+
+        if (shorturl):
+          url = model.Url(user=self.user, longurl=longurl, userip=self.request.remote_addr)
+          url.put()
       except:
         pass
       
@@ -152,9 +158,7 @@ class FormHandler(webapp.RequestHandler):
     
     if (longurl):
       self.template_values['shorturl'] = shorturl
-      
-      url = model.Url(user=self.user, longurl=longurl, userip=self.request.remote_addr)
-      url.put()
+
       
       path = os.path.join(os.path.dirname(__file__), 'templates/iframe_result.html')
       self.response.out.write(template.render(path, self.template_values))
@@ -168,6 +172,7 @@ class ApiHandler(webapp.RequestHandler):
   def get(self):
     
     longurl = self.request.get("url", None)
+    shorturl = None
     
     if (longurl and (not longurl.startswith("http://") and not longurl.startswith("https://"))):
       longurl = "http://" + longurl
@@ -175,6 +180,10 @@ class ApiHandler(webapp.RequestHandler):
     if (longurl):
       try:
         shorturl, shorturl_source = find_shorturl(longurl)
+        
+        if (shorturl):
+          url = model.Url(user=self.user, longurl=longurl, userip=self.request.remote_addr)
+          url.put()        
       except:
         pass      
     
